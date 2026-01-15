@@ -1,5 +1,9 @@
 # 🛡️ IRONFLOW
 
+<p align="center">
+  <img src="docs/logo.png" alt="IRONFLOW Logo" width="200"/>
+</p>
+
 **Next-Generation Enterprise OT/ICS Security Analysis & Asset Discovery Platform**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
