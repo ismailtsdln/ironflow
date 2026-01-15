@@ -53,12 +53,7 @@ class ModbusScanner(ProtocolPlugin):
                 return None
 
             # Attempt to read Device Identification (FC 43, MEI 14)
-            # This is a safe 'read-only' operation for identification.
-            from pymodbus.pdu import Meidatagram
-            # Note: Many PLCs don't support this, so we might need fallback 
-            # like reading Holding Registers if safe.
-            
-            # Schneider/Unity often responds to this.
+            # Note: Many PLCs don't support MEI, so using simple connection detection for MVP.
             
             vendor = "Unknown"
             model = "Unknown"
