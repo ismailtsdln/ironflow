@@ -1,82 +1,103 @@
-# IRONFLOW
+# 🛡️ IRONFLOW
 
-**Enterprise-grade OT/ICS Security Analysis Platform**
+**Next-Generation Enterprise OT/ICS Security Analysis & Asset Discovery Platform**
 
-## Overview
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python: 3.10+](https://img.shields.io/badge/Python-3.10+-brightgreen.svg)](https://www.python.org/)
+[![Safety: Default ON](https://img.shields.io/badge/Safety-Default_ON-red.svg)](#safety--legal-disclaimer)
 
-**IRONFLOW** is a safe-by-design, modular security assessment framework designed specifically for industrial control systems (ICS) and operational technology (OT) environments. It provides deep visibility, risk assessment, and protocol analysis while prioritizing the operational availability and safety of the target environment.
+---
+
+## 🚀 Overview
+
+**IRONFLOW** is a production-grade, modular security assessment framework engineered for sensitive Industrial Control Systems (ICS) and Operational Technology (OT). It provides critical visibility, risk quantification, and deep protocol dissection without compromising operational safety or reliability.
 
 > [!IMPORTANT]
-> **Safety First**: IRONFLOW operates in **read-only SAFE MODE** by default. No data is written to the network (other than standard TCP handshakes) and no state-changing commands are sent unless explicitly overridden by the operator.
+> **Safety-by-Design**: IRONFLOW operates in a non-intrusive **SAFE MODE** by default. It utilizes benign protocol handshakes and read-only operations to ensure zero impact on industrial processes.
 
-## Features
+---
 
-- **Multi-protocol ICS Discovery**: Securely identify assets speaking Modbus, S7Comm, and DNP3.
-- **Passive & Active Scanning**: Hybrid approach using PCAP analysis and benign active queries.
-- **Risk Scoring Engine**: Custom OT-aware risk calculation (not just generic CVSS).
-- **Topology Mapping**: Visualize network flows and device relationships.
-- **Offline Analysis**: Analyze captured traffic without touching the live network.
-- **Safe-by-Design**: Strict safeguards against accidental intrusive actions.
-- **Enterprise Ready**: JSON reporting, extensive logging, and integration friendly.
+## ✨ Key Features
 
-## Installation
+- **🌐 Comprehensive OT Support**: Native dissection for 7+ protocols (Modbus, S7, DNP3, BACnet, EtherNet/IP, IEC-104, OPC UA).
+- **🔍 Hybrid Discovery**: Combined real-time passive PCAP analysis and safe active fingerprinting.
+- **📊 OT-Aware Risk Engine**: Sophisticated scoring based on industrial exposure and configuration posture.
+- **🗺️ Topology Intelligence**: Automatic mapping of industrial network relationships and protocol flows.
+- **🎨 Premium UX**: Modern CLI interface powered by `rich` with colorized tables, progress tracking, and branding.
+- **💼 Enterprise Reporting**: High-fidelity HTML and JSON reports for stakeholders and CI/CD integration.
+
+---
+
+## 🛠️ Installation
 
 ```bash
-# Clone the repository
+# Clone the enterprise repository
 git clone https://github.com/ismailtsdln/ironflow.git
 cd ironflow
 
-# Install dependencies
+# Set up a clean environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install production dependencies
 pip install -r requirements.txt
-
-# Run the tool
-python3 -m ironflow.cli.main --help
 ```
 
-## Usage
+---
 
-### Basic Asset Scan (Safe Mode)
+## 📖 Usage
 
+IRONFLOW is invoked as a standard Python module for maximum portability:
+
+### 📡 Network Asset Discovery
 ```bash
-ironflow scan --target 192.168.1.0/24 --protocol modbus
+python3 -m ironflow scan --target 192.168.1.0/24 --report
 ```
 
-### Risk Analysis from PCAP
-
+### 📦 Passive Traffic Analysis
 ```bash
-ironflow analyze --pcap /path/to/capture.pcap --export report.json
+python3 -m ironflow analyze --pcap captures/plant_floor.pcap --report
 ```
 
-### Risk Assessment
-
+### ⚖️ Rapid Risk Assessment
 ```bash
-ironflow risk --target 192.168.1.10
+python3 -m ironflow risk --target 192.168.1.50
 ```
 
-## Architecture
+### 🗺️ Topology Mapping
+```bash
+python3 -m ironflow topology --target 192.168.1.0/24 --export network_map.json
+```
 
-IRONFLOW is built on a modular plugin architecture to ensure extensibility and stability.
+---
 
-- **Core**: Manages configuration, safety state, and plugin orchestration.
-- **Protocols**: Independent modules for each ICS protocol (Modbus, S7, DNP3).
-- **Discovery**: Modules for passive and safe-active discovery.
-- **Risk**: Engine for calculating risk scores based on asset exposure and posture.
-- **Plugins**: Extensible interface for adding new capabilities.
+## 🏗️ Architecture
 
-## Safety & Legal Disclaimer
+IRONFLOW follows a strictly modular architecture to enable safe expansion:
 
-**Authorized Use Only.**
+- **`ironflow.core`**: Safety guards, plugin orchestration, and persistence logic.
+- **`ironflow.protocols`**: Isolated protocol engines for safe identification.
+- **`ironflow.discovery`**: Orchestration for both active network sweeps and passive capture analysis.
+- **`ironflow.risk`**: YAML-driven risk scoring rules and calculation engine.
+- **`ironflow.reporting`**: Template-based generator for HTML/JSON security audits.
 
-This tool is designed for defensive security purposes, such as audits, vulnerability assessments, and blue team operations.
+---
 
-- **Do not use this tool on networks you do not own or have explicit permission to test.**
-- **The authors are not responsible for any damage, downtime, or legal consequences resulting from the misuse of this tool.**
-- **Always verify the safety of active scanning in your specific OT environment before execution.**
+## 🛡️ Safety & Legal Disclaimer
 
-## Contributing
+**AUTHORIZED USE ONLY.**
 
-Contributions are welcome! Please ensure all code adheres to the safety-first philosophy and passes the test suite.
+Industrial environments are fragile. IRONFLOW is designed for defensive auditing, blue-teaming, and posture management.
 
-## License
+- **Permission**: Ensure you have explicit, written authorization before scanning any OT network.
+- **Liability**: The developers assume no responsibility for downtime or damages resulting from improper configuration or use.
+- **Warning**: Always use `--dangerous` with extreme caution in production environments.
 
-MIT License - See LICENSE for details.
+---
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+*Developed with focus on Industrial Resilience.*
