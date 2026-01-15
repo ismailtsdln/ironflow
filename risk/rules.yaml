@@ -1,0 +1,54 @@
+rules:
+  - id: R001
+    name: "Modbus TCP Exposed"
+    description: "Modbus protocol detected on standard port."
+    severity: "Medium"
+    base_score: 4.0
+
+  - id: R002
+    name: "S7Comm Exposed"
+    description: "Siemens S7 communication protocol detected."
+    severity: "Medium"
+    base_score: 4.5
+
+  - id: R003
+    name: "DNP3 Exposed"
+    description: "DNP3 protocol detected on standard port."
+    severity: "Medium"
+    base_score: 4.0
+
+  - id: R004
+    name: "Unsafe Write Modbus"
+    description: "Potentially unsafe write operations enabled (Write Single Coil/Register)."
+    severity: "High"
+    base_score: 7.5
+
+  - id: R005
+    name: "Legacy PLC detected"
+    description: "Device identified as a legacy PLC with known vulnerabilities."
+    severity: "High"
+    base_score: 8.0
+
+  - id: R006
+    name: "BACnet/IP Exposed"
+    description: "BACnet/IP building automation protocol detected."
+    severity: "Medium"
+    base_score: 4.0
+
+  - id: R007
+    name: "EtherNet/IP Exposed"
+    description: "EtherNet/IP & CIP industrial protocol detected."
+    severity: "Medium"
+    base_score: 4.5
+
+  - id: R008
+    name: "IEC-104 Exposed"
+    description: "IEC 60870-5-104 telecontrol protocol detected."
+    severity: "High"
+    base_score: 7.0
+
+  - id: R009
+    name: "OPC UA Exposed"
+    description: "OPC UA industrial interoperability protocol detected."
+    severity: "Medium"
+    base_score: 3.5

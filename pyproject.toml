@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ironflow"
+version = "0.1.0"
+authors = [
+  { name="Ismail Tasdelen" },
+]
+description = "Enterprise-grade OT/ICS Security Analysis Platform"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+]
+dependencies = [
+    "click>=8.1.0",
+    "colorama>=0.4.6",
+    "pymodbus>=3.0.0",
+    "scapy>=2.5.0",
+    "pydantic>=2.0.0",
+    "PyYAML>=6.0",
+    "requests>=2.31.0",
+]
+
+[project.scripts]
+ironflow = "ironflow.cli.main:cli"
